@@ -12,7 +12,7 @@ enum layers {
 #define MO_SYS  MO(KL_SYS)
 
 /* MOD */
-#define MD_LALT LALT_T(KC_MHEN) // Left Alt when held, muhenkan when tapped
+#define MD_LALT LALT_T(KC_INT5) // Left Alt when held, muhenkan when tapped
 #define MD_LCTL LCTL_T(KC_BSPC) // Left Control when held, BSPC when tapped
 #define MD_LSFT LSFT_T(KC_SPC) // Left Shift when held, SPC when tapped
 
@@ -33,7 +33,7 @@ enum layers {
 #define JP_LKKO KC_RBRC  // JIS [
 #define JP_RKKO KC_NUHS  // JIS ]
 #define JP_UNDR LSFT(KC_INT1) // JIS _
-#define JP_BSLS LOPT(KC_INT3) // JIS Back Slash (Opt + ¥)
+#define JP_BSLS KC_INT1 // JIS Back Slash
 #define JP_EQL  LSFT(KC_MINS) // JIS =
 #define JP_PLUS LSFT(KC_SCLN) // JIS +
 #define JP_ASTR LSFT(KC_QUOT) // JIS *
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_ENT,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                          MD_LCTL, MO_NUM,  MD_LCTL, MD_LSFT, MO_FUN,  JP_HENK
+                          MD_LALT, MO_NUM,  MD_LCTL, MD_LSFT, MO_FUN,  JP_HENK
     ),
 
     /* FUNCTION
