@@ -12,10 +12,10 @@ enum layers {
 #define MO_SYS  MO(KL_SYS)
 
 /* MOD */
-#define MD_LCTL LCTL_T(KC_LNG2) // Left Control when held, EISU when tapped
-#define MD_LCMD LCMD_T(KC_BSPC) // Left Cmd when held, BSPC when tapped
+#define MD_LCTL LALT_T(KC_LNG2) // Left Control when held, EISU when tapped
+#define MD_LCMD LCTL_T(KC_BSPC) // Left Cmd when held, BSPC when tapped
 #define MD_LSFT LSFT_T(KC_SPC) // Left Shift when held, SPC when tapped
-#define MD_LOPT LOPT_T(KC_LNG1) // Left Opt(Alt) when held, KANA when tapped
+#define MD_LOPT LGUI_T(KC_LNG1) // Left Opt(Alt) when held, KANA when tapped
 
 /* NUM MOD */
 #define MD_DEL LCMD_T(KC_DEL) // Left Cmd when held, DEL when tapped
