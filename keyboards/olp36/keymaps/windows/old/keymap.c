@@ -12,19 +12,13 @@ enum layers {
 #define MO_SYS  MO(KL_SYS)
 
 /* MOD */
-#define MD_LCTL LCTL_T(KC_LNG2) // Left Control when held, EISU when tapped
-#define MD_LCMD LCMD_T(KC_BSPC) // Left Cmd when held, BSPC when tapped
+#define MD_LALT LALT_T(KC_LNG2) // Left Alt when held, muhenkan when tapped
+#define MD_LCTL LCTL_T(KC_BSPC) // Left Control when held, BSPC when tapped
 #define MD_LSFT LSFT_T(KC_SPC) // Left Shift when held, SPC when tapped
-#define MD_LOPT LOPT_T(KC_LNG1) // Left Opt(Alt) when held, KANA when tapped
-
-/* NUM MOD */
-#define MD_DEL LCMD_T(KC_DEL) // Left Cmd when held, DEL when tapped
-#define MD_CNM LSFT_T(KC_COMM) // Left Shift when held, COMM when tapped
-#define MD_DOT LOPT_T(KC_DOT) // Left Opt(Alt) when held, DOT when tapped
-#define MD_CBS LCMD(KC_BSPC) // Mac trash shortcut
 
 /* JPN KEY */
-#define JP_LMKK KC_ASTR //　JIS (
+#define JP_HENK KC_LNG1 // JIS henkan
+#define JP_LMKK KC_ASTR // JIS (
 #define JP_RMKK KC_LPRN // JIS )
 #define JP_AND  LSFT(KC_6)  // JIS &
 #define JP_CLN  KC_QUOT // JIS :
@@ -39,11 +33,11 @@ enum layers {
 #define JP_LKKO KC_RBRC  // JIS [
 #define JP_RKKO KC_NUHS  // JIS ]
 #define JP_UNDR LSFT(KC_INT1) // JIS _
-#define JP_BSLS LOPT(KC_INT3) // JIS Back Slash (Opt + ¥)
+#define JP_BSLS KC_INT1 // JIS Back Slash
 #define JP_EQL  LSFT(KC_MINS) // JIS =
 #define JP_PLUS LSFT(KC_SCLN) // JIS +
 #define JP_ASTR LSFT(KC_QUOT) // JIS *
-#define JP_JYEN KC_INT3 // JIS ¥
+#define JP_JYEN KC_INT3 // JIS YEN
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -55,59 +49,59 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * |------+------+------+------+------++------+------+------+------+------|
 * |   Z  |   X  |   C  |   V  |   B  ||   N  |   M  |   ,  |   .  |   /  |
 * `------+------+------+------+------++------+------+------+------+------'
-*               | eisu |      |  BS  ||  SPC |      | kana |
-*               |Contrl|NumLyr|Comand|| Shift|FunLyr|Option|
+*               |muhenk|      |  BS  ||  SPC |      |      |
+*               |  Alt |NumLyr|Contrl|| Shift|FunLyr|henkan|
 *               `------------------------------------------'
 */
     [KL_MAIN] = LAYOUT_ortho_4x10(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_ENT,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                          MD_LCTL, MO_NUM,  MD_LCMD, MD_LSFT, MO_FUN,  MD_LOPT
+                          MD_LALT, MO_NUM,  MD_LCTL, MD_LSFT, MO_FUN,  JP_HENK
     ),
 
     /* FUNCTION
  * ,----------------------------------------------------------------------.
  * |  ESC |   '  |  up  |   "  |   $  ||   ;  |   :  |   (  |   )  |   @  |
  * |------+------+------+------+------++------+------+------+------+------|
- * |  TAB | left |  down |right|   #  ||   \  |   ^  |   &  |   %  |   -  |
+ * |  TAB | left |  down |right|   #  ||  Yen |   ^  |   &  |   %  |   -  |
  * |------+------+------+------+------++------+------+------+------+------|
- * |   |  |VolDwn| MUTE | VolUp|   ¥  ||   ~  |   _  |   [  |   ]  |   !  |
+ * |   |  |VolDwn| MUTE | VolUp|BSlash||   ~  |   _  |   [  |   ]  |   !  |
  * `------+------+------+------+------++------+------+------+------+------'
- *               | eisu |      |  BS  ||  SPC |      | kana |
- *               |Contrl|SysLyr|Comand|| Shift|      |Option|
+ *               |muhenk|      |      ||  SPC |      |      |
+ *               |  Alt |SysLyr|  DEL || Shift|      |  WIN |
  *               `------------------------------------------'
  */
     [KL_FUN] = LAYOUT_ortho_4x10(
         KC_ESC,  JP_SQUO, KC_UP,   JP_DQUO, JP_DOLL, KC_SCLN, JP_CLN,  JP_LMKK, JP_RMKK, JP_AT,
         KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, JP_SHAP, JP_JYEN, JP_CIRC, JP_AND,  JP_PERC, KC_MINS,
         JP_VBAR, KC_VOLD, KC_MUTE, KC_VOLU, JP_BSLS, KC_TILD, JP_UNDR, JP_LKKO, JP_RKKO, KC_EXLM,
-                         _______, MO_SYS,   _______, _______, XXXXXXX, _______
+                         _______, MO_SYS,   KC_DEL,  _______, XXXXXXX, KC_LWIN
     ),
 
     /* NUMBER
  * ,----------------------------------------------------------------------.
- * |TRASH |  F10 |  F7  |  F8  |  F9  ||   7  |   8  |   9  |   0  |   =  |
+ * |      |  F10 |  F7  |  F8  |  F9  ||   7  |   8  |   9  |   0  |   =  |
  * |------+------+------+------+------++------+------+------+------+------|
  * |      |  F11 |  F4  |  F5  |  F6  ||   4  |   5  |   6  |   +  |   -  |
  * |------+------+------+------+------++------+------+------+------+------|
  * |      |  F12 |  F1  |  F2  |  F3  ||   1  |   2  |   3  |   *  |   /  |
  * `------+------+------+------+------++------+------+------+------+------'
- *               | eisu |      |  DEL ||   ,  |      |   .  |
- *               |Contrl|      |Comand|| Shift|   0  |Option|
+ *               |muhenk|      |      ||      |      |      |
+ *               |  Alt |      |  DEL ||   ,  |   0  |   .  |
  *               `------------------------------------------'
  */
     [KL_NUM] = LAYOUT_ortho_4x10(
-        MD_CBS,  KC_F10,  KC_F7,   KC_F8,   KC_F9,   KC_7,    KC_8,    KC_9,    KC_0,    JP_EQL,
+        XXXXXXX, KC_F10,  KC_F7,   KC_F8,   KC_F9,   KC_7,    KC_8,    KC_9,    KC_0,    JP_EQL,
         XXXXXXX, KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_4,    KC_5,    KC_6,    JP_PLUS, KC_MINS,
         XXXXXXX, KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_1,    KC_2,    KC_3,    JP_ASTR, KC_SLSH,
-                          _______, XXXXXXX, MD_DEL,  MD_CNM,  KC_0,    MD_DOT
+                          _______, XXXXXXX, KC_DEL,  KC_COMM, KC_0,    KC_DOT
     ),
 
     [KL_SYS] = LAYOUT_ortho_4x10(
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PWR,
                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     )
 };
