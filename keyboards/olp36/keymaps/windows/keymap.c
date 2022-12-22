@@ -12,7 +12,7 @@ enum layers {
 #define MO_SYS  MO(KL_SYS)
 
 /* MOD */
-#define MD_LALT LALT_T(KC_INT5) // Left Alt when held, muhenkan when tapped
+#define MD_LALT LALT_T(KC_MHEN) // Left Alt when held, muhenkan when tapped
 #define MD_LCTL LCTL_T(KC_BSPC) // Left Control when held, BSPC when tapped
 #define MD_LSFT LSFT_T(KC_SPC) // Left Shift when held, SPC when tapped
 
@@ -64,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------------------------------------.
  * |  ESC |   '  |  up  |   "  |   $  ||   ;  |   :  |   (  |   )  |   @  |
  * |------+------+------+------+------++------+------+------+------+------|
- * |  TAB | left |  down |right|   #  ||   \  |   ^  |   &  |   %  |   -  |
+ * |  TAB | left |  down |right|   #  ||  Yen |   ^  |   &  |   %  |   -  |
  * |------+------+------+------+------++------+------+------+------+------|
- * |   |  |VolDwn| MUTE | VolUp|   ¥  ||   ~  |   _  |   [  |   ]  |   !  |
+ * |   |  |VolDwn| MUTE | VolUp|BSlash||   ~  |   _  |   [  |   ]  |   !  |
  * `------+------+------+------+------++------+------+------+------+------'
  *               |muhenk|      |      ||  SPC |      |      |
  *               |  Alt |SysLyr|  DEL || Shift|      |  WIN |
