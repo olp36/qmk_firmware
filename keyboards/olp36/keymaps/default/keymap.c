@@ -33,6 +33,7 @@ enum layers {
 #define JP_EQL  LSFT(KC_MINS) // JIS =
 #define JP_PLUS LSFT(KC_SCLN) // JIS +
 #define JP_ASTR LSFT(KC_QUOT) // JIS *
+#define JP_TILD LSFT(KC_EQL)  // JIS ~
 #define JP_BSLS KC_INT1 // JIS Back Slash
 #define JP_UNDR LSFT(KC_INT1) // JIS _
 #define JP_JYEN KC_INT3 // JIS YEN
@@ -75,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [KL_FUN] = LAYOUT_ortho_4x10(
         KC_ESC,  JP_SQUO, KC_UP,   JP_DQUO, JP_DOLL, KC_SCLN, JP_CLN,  JP_LMKK, JP_RMKK, JP_AT,
         KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, JP_SHAP, JP_JYEN, JP_CIRC, JP_AND,  JP_PERC, KC_MINS,
-        JP_VBAR, KC_VOLD, KC_MUTE, KC_VOLU, JP_BSLS, KC_TILD, JP_UNDR, JP_LKKO, JP_RKKO, KC_EXLM,
+        JP_VBAR, KC_VOLD, KC_MUTE, KC_VOLU, JP_BSLS, JP_TILD, JP_UNDR, JP_LKKO, JP_RKKO, KC_EXLM,
                          _______, MO_SYS,   KC_DEL,  _______, XXXXXXX, KC_LWIN
     ),
 
